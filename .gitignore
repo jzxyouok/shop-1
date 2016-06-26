@@ -1,3 +1,6 @@
 /ThinkPHP/
 /admin.shop.com/app/Runtime/
 /www.shop.com/app/Runtime/
+/admin.shop.com/Public/Admin/img/
+.idea/
+/admin.shop.com/Public/upload_img/

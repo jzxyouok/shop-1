@@ -37,10 +37,10 @@ class SupplierModel extends Model
 
     public function edit($data)
     {
-        $rows = $this->find($data['id']);
-        if ($rows['name'] === $data['name']){           //如果提交的供货商名称未发生变化
-            array_splice($this->_validate, 1, 1);       //去掉供货商名称的重复性检查
-        }
+//        $rows = $this->find($data['id']);
+//        if ($rows['name'] === $data['name']){           //如果提交的供货商名称未发生变化
+//            array_splice($this->_validate, 1, 1);       //去掉供货商名称的重复性检查
+//        }
         $re = $this->create($data);
         if (!$re){
             return false;

@@ -2,32 +2,27 @@
 /**
  * Created by PhpStorm.
  * User: 胡亚洲
- * Date: 2016/6/24
- * Time: 13:20
+ * Date: 2016/6/25
+ * Time: 9:34
  */
 
 namespace Admin\Controller;
 
 
-//use Admin\Model\SupplierModel;
 use Think\Controller;
 
-class SupplierController extends Controller
+class BrandController extends Controller
 {
     /**
-     * @var \Admin\Model\SupplierModel
+     * @var \Admin\Model\BrandModel
      */
     private $_model = null;
 
-
     protected function _initialize()
     {
-        $this->_model = D('Supplier');
+        $this->_model = D('Brand');
     }
 
-    /**
-     * 分页和模糊查询
-     */
     public function index()
     {
         $data = [
@@ -42,9 +37,6 @@ class SupplierController extends Controller
         
     }
 
-    /**
-     * 添加方法
-     */
     public function add()
     {
         if (!IS_POST){
@@ -54,16 +46,16 @@ class SupplierController extends Controller
             if ($re === false){
                 $this->error(getError($this->_model), '' ,3);
             }
-//            dump($this->_model->data());
-            $re = $this->_model->add();
+//            dump($_FILES);
+            $re = $this->_model->addModel(['data' => $this->_model->data(), 'file' => $_FILES]);
             if ($re === false){
                 $this->error(getError($this->_model), '' ,3);
             }
-            $this->success('添加成功', U('index'), 3);
+            $this->success('添加成功', U('index', 3));
         }
 
     }
-    
+
     public function edit()
     {
 //        dump(I('get.id'));
@@ -73,7 +65,11 @@ class SupplierController extends Controller
             $this->display('add');
         } else {
 //            dump(I());
-            $re = $this->_model->edit(I('post.'));
+            $re = $this->_model->create();
+            if ($re === false){
+                $this->error(getError($this->_model), '' ,3);
+            }
+            $re = $this->_model->edit($_FILES);
             if ($re === false){
 //                dump(getError($this->_model));
                 $this->error(getError($this->_model), '' ,3);
@@ -92,5 +88,6 @@ class SupplierController extends Controller
         }
         $this->success('删除成功', U('index', 3));
     }
+
 
 }
