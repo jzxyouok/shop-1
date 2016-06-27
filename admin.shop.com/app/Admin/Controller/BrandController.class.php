@@ -40,14 +40,18 @@ class BrandController extends Controller
     public function add()
     {
         if (!IS_POST){
-            $this->display();
+//            $this->display();
+            $this->display('add1');
         } else {
+
             $re = $this->_model->create();
             if ($re === false){
                 $this->error(getError($this->_model), '' ,3);
             }
+//            dump($this->_model->data());exit;
 //            dump($_FILES);
-            $re = $this->_model->addModel(['data' => $this->_model->data(), 'file' => $_FILES]);
+//            $re = $this->_model->addModel(['data' => $this->_model->data(), 'file' => $_FILES]);
+            $re = $this->_model->add();
             if ($re === false){
                 $this->error(getError($this->_model), '' ,3);
             }
@@ -62,14 +66,15 @@ class BrandController extends Controller
         if (!IS_POST) {
             $row = $this->_model->find(I('get.id'));
             $this->assign('row', $row);
-            $this->display('add');
+            $this->display('add1');
         } else {
 //            dump(I());
             $re = $this->_model->create();
             if ($re === false){
                 $this->error(getError($this->_model), '' ,3);
             }
-            $re = $this->_model->edit($_FILES);
+//            $re = $this->_model->edit($_FILES);
+            $re = $this->_model->save();
             if ($re === false){
 //                dump(getError($this->_model));
                 $this->error(getError($this->_model), '' ,3);
