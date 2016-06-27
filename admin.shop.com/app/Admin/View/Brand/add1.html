@@ -72,7 +72,7 @@
     共执行 3 个查询，用时 0.162348 秒，Gzip 已禁用，内存占用 2.266 MB<br/>
     版权所有 &copy; 2005-2012 上海商派网络科技有限公司，并保留所有权利。
 </div>
-
+<js href='__LAYER__/layer.js'/>
 <script>
     $(function () {
         $(".radio").val([{$row.status|default = 1}]);       //*这里连空格都不让有*
@@ -97,8 +97,10 @@
                 if (datas.status == 1) {
                     $(".logo").val(datas.file_url);
                     $("#logo_img").attr('src', datas.file_url);
+                    console.log(datas);
+                    layer.alert(datas.file_msg, {icon: 6});
                 } else {
-
+                    layer.alert(datas.file_msg, {icon: 5});
                 }
             }
 

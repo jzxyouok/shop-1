@@ -4,3 +4,5 @@
 /admin.shop.com/Public/Admin/img/
 .idea/
 /admin.shop.com/Public/upload_img/
+/admin.shop.com/app/Ext/Conf/config.php
+/admin.shop.com/app/Common/Conf/config.php

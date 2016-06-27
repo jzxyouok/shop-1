@@ -23,8 +23,13 @@ class UploadController extends Controller
         $imgInfo = $imgModel->upload();
 //        dump($imgInfo);
         if ($imgInfo){
+            if ($imgModel->driver == 'Qiniu'){
+                $file_url = $imgInfo['Filedata']['url'];
+            }else{
+                $file_url = BASE_URL . $imgInfo['Filedata']['savepath'] . $imgInfo['Filedata']['savename'];
+            }
             $return = [
-                'file_url' => BASE_URL . $imgInfo['Filedata']['savepath'] . $imgInfo['Filedata']['savename'],
+                'file_url' => $file_url,
                 'file_msg' => '上传成功',
                 'status' => 1,
             ];

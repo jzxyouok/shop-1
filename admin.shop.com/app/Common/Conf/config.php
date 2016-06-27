@@ -37,6 +37,7 @@ return array(
         '__JS__' => BASE_URL . 'Admin/js',
         '__LOGO__' => BASE_URL . 'Admin/logo',
         '__UPLOADIFY__' => BASE_URL . 'Admin/ext/uploadify',
+        '__LAYER__' => BASE_URL . 'Admin/ext/layer',
     ),
 
     //图片上传设置
@@ -52,5 +53,13 @@ return array(
         'saveExt' => '', //文件保存后缀，空则使用原后缀
         'replace' => false, //存在同名是否覆盖
         'hash' => true, //是否生成hash编码
+        'driver'       => 'Qiniu', // 文件上传驱动
+        'driverConfig' => array(
+            'secretKey' => 'oAfqNJgcU5O6CVb5KR-aQEa4Hj63qTEowivzMGUA', //SK
+            'accessKey'  => '9MdERLB9cstMpi5tmUeMh6cdl9DbLBQBDh-gA_TH', //AK
+            'domain'     => 'o9fqydrvr.bkt.clouddn.com', //域名
+            'bucket'     => 'shop', //空间名称
+            'timeout'    => 300, //超时时间
+        ), // 上传驱动配置
     ],
 );
