@@ -38,6 +38,8 @@ return array(
         '__LOGO__' => BASE_URL . 'Admin/logo',
         '__UPLOADIFY__' => BASE_URL . 'Admin/ext/uploadify',
         '__LAYER__' => BASE_URL . 'Admin/ext/layer',
+        '__ZTREE__' => BASE_URL . 'Admin/ext/zTree',
+        '__TREEGRID__' => BASE_URL . 'Admin/ext/treegrid',
     ),
 
     //图片上传设置
